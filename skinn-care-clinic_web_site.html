@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Feyza Seid — Specialized Skin Care Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #0284c7;
+  --sky-light: #0ea5e9;
+  --sky-dark: #0369a1;
+  --navy: #0f172a;
+  --soft: #eff9ff;
+  --accent: #38bdf8;
+  --text: #334155;
+  --muted: #64748b;
+  --white: #ffffff;
+  --card-bg: #ffffff;
+  --section-bg: #f8fbfd;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--section-bg);
+  color:var(--text);
+  line-height:1.7;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --section-bg: #0f172a;
+  --card-bg: #1e293b;
+  --soft: #1e293b;
+  --navy: #f1f5f9;
+  --white: #1e293b;
+}
+
+/* ── HEADER ── */
+header{
+  background:linear-gradient(135deg,#0ea5e9,#0284c7);
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:200;
+  box-shadow:0 4px 24px rgba(2,132,199,.25);
+}
+
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:.3px;
+  line-height:1.2;
+}
+.logo span{display:block;font-size:12px;font-weight:400;opacity:.85;font-family:'DM Sans',sans-serif;}
+
+nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:7px 14px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:500;
+  transition:.2s;
+}
+nav a:hover{background:rgba(255,255,255,.18);}
+
+/* Language Selector */
+.lang-select{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  color:white;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:13px;
+  cursor:pointer;
+  outline:none;
+  font-family:'DM Sans',sans-serif;
+}
+.lang-select option{color:#333;background:white;}
+
+/* ── HERO ── */
+.hero{
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px 6%;
+  background:linear-gradient(135deg,#eff9ff 0%,#ffffff 60%,#e0f2fe 100%);
+  position:relative;
+  overflow:hidden;
+}
+body.dark .hero{background:linear-gradient(135deg,#0c1a2e 0%,#0f172a 60%,#0c1a2e 100%);}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-80px;right:-80px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(14,165,233,.12),transparent 70%);
+  border-radius:50%;
+}
+
+.hero-content{max-width:580px;z-index:1;}
+.hero-content h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px;
+  line-height:1.08;
+  color:var(--navy);
+  font-weight:700;
+}
+body.dark .hero-content h1{color:#f1f5f9;}
+.hero-content h1 span{color:var(--sky);}
+.hero-content p{margin:24px 0 36px;font-size:17px;color:var(--muted);line-height:1.8;}
+
+.btn{
+  display:inline-block;
+  background:var(--sky);
+  color:white;
+  padding:15px 38px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:.3s;
+  box-shadow:0 8px 24px rgba(2,132,199,.35);
+}
+.btn:hover{background:var(--sky-dark);transform:translateY(-3px);box-shadow:0 12px 32px rgba(2,132,199,.45);}
+
+.btn-outline{
+  display:inline-block;
+  border:2px solid var(--sky);
+  color:var(--sky);
+  padding:13px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  margin-left:14px;
+  transition:.3s;
+}
+.btn-outline:hover{background:var(--sky);color:white;}
+
+.hero-image img{
+  width:480px;
+  max-width:100%;
+  border-radius:30px;
+  box-shadow:0 30px 80px rgba(2,132,199,.2);
+  object-fit:cover;
+  height:520px;
+}
+
+/* ── SECTION COMMONS ── */
+.section{padding:90px 6%;}
+
+.section-title{text-align:center;margin-bottom:60px;}
+.section-title h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;
+  color:var(--navy);
+  font-weight:700;
+}
+body.dark .section-title h2{color:#f1f5f9;}
+.section-title p{color:var(--muted);margin-top:10px;font-size:16px;}
+
+.section-title .eyebrow{
+  display:inline-block;
+  background:rgba(2,132,199,.1);
+  color:var(--sky);
+  padding:4px 16px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  margin-bottom:14px;
+}
+
+/* ── ABOUT ── */
+.about-section{
+  padding:90px 6%;
+  background:var(--white);
+}
+body.dark .about-section{background:#1e293b;}
+
+.about-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+  max-width:1100px;
+  margin:0 auto;
+}
+.about-img img{
+  width:100%;
+  border-radius:24px;
+  object-fit:cover;
+  height:460px;
+  box-shadow:0 24px 60px rgba(2,132,199,.15);
+}
+.about-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;
+  color:var(--navy);
+  line-height:1.1;
+  margin-bottom:20px;
+}
+body.dark .about-text h2{color:#f1f5f9;}
+.about-text p{color:var(--muted);font-size:16px;line-height:1.85;margin-bottom:16px;}
+
+/* ── SERVICES ── */
+.services-section{background:var(--section-bg);}
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.card{
+  background:var(--card-bg);
+  padding:34px 28px;
+  border-radius:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,.07);
+  transition:.3s;
+  border:1px solid rgba(2,132,199,.08);
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,132,199,.15);border-color:rgba(2,132,199,.2);}
+.card-icon{font-size:36px;margin-bottom:16px;}
+.card h3{color:var(--sky);margin-bottom:10px;font-size:18px;font-weight:600;}
+.card p{color:var(--muted);font-size:15px;}
+
+/* ── STATS ── */
+.stats{
+  background:linear-gradient(135deg,var(--sky-dark),var(--sky-light));
+  color:white;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  text-align:center;
+  padding:80px 6%;
+  gap:40px;
+}
+.stat h2{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:700;line-height:1;}
+.stat p{font-size:15px;opacity:.85;margin-top:6px;}
+
+/* ── OPENING HOURS ── */
+.hours-section{
+  padding:90px 6%;
+  background:var(--white);
+}
+body.dark .hours-section{background:#1e293b;}
+
+.hours-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  max-width:900px;
+  margin:0 auto;
+  align-items:start;
+}
+.hours-table{width:100%;}
+.hours-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid rgba(2,132,199,.1);
+  font-size:15px;
+}
+.hours-row:last-child{border-bottom:none;}
+.hours-row .day{font-weight:500;color:var(--text);}
+.hours-row .time{color:var(--sky);font-weight:600;}
+.hours-row.closed .time{color:#94a3b8;}
+
+.contact-box{
+  background:var(--soft);
+  border-radius:20px;
+  padding:32px;
+}
+body.dark .contact-box{background:#0f172a;}
+.contact-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  color:var(--navy);
+  margin-bottom:20px;
+}
+body.dark .contact-box h3{color:#f1f5f9;}
+.contact-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:18px;
+  font-size:15px;
+  color:var(--text);
+}
+.contact-item .icon{font-size:20px;margin-top:2px;flex-shrink:0;}
+.contact-item strong{display:block;color:var(--sky);font-size:13px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;}
+
+/* ── FOLLOW US / SOCIAL ── */
+.social-section{
+  padding:80px 6%;
+  background:var(--section-bg);
+  text-align:center;
+}
+.social-cards{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+.social-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 32px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:.3s;
+  border:2px solid transparent;
+}
+.social-btn:hover{transform:translateY(-4px);}
+.social-btn.insta{background:linear-gradient(135deg,#f9a825,#e91e63,#9c27b0);color:white;}
+.social-btn.tiktok{background:#010101;color:white;}
+.social-btn.telegram{background:#0088cc;color:white;}
+.social-btn .s-icon{font-size:22px;}
+
+/* ── CTA ── */
+.cta{
+  background:linear-gradient(135deg,var(--sky-dark),var(--sky-light));
+  color:white;
+  text-align:center;
+  padding:90px 6%;
+}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:46px;margin-bottom:18px;}
+.cta p{font-size:17px;opacity:.9;margin-bottom:36px;}
+.btn-white{
+  display:inline-block;
+  background:white;
+  color:var(--sky);
+  padding:15px 38px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:15px;
+  transition:.3s;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.2);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy);
+  color:white;
+  padding:50px 6% 30px;
+}
+body.dark footer{background:#020817;}
+.footer-inner{
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+.footer-inner h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  margin-bottom:6px;
+}
+.footer-links{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:20px 0;font-size:14px;}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;transition:.2s;}
+.footer-links a:hover{color:var(--accent);}
+.footer-divider{border:0;border-top:1px solid rgba(255,255,255,.12);margin:24px 0;}
+.footer-copy{font-size:13px;opacity:.6;}
+.footer-creator{margin-top:12px;font-size:13px;opacity:.7;line-height:1.8;}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  background:#25D366;
+  color:white;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  box-shadow:0 8px 24px rgba(37,211,102,.45);
+  text-decoration:none;
+  transition:.3s;
+  animation:pulse-wa 2.5s infinite;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 12px 36px rgba(37,211,102,.6);}
+@keyframes pulse-wa{
+  0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.45);}
+  50%{box-shadow:0 8px 36px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.1);}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{flex-direction:column;text-align:center;padding:60px 6%;}
+  .hero-content h1{font-size:46px;}
+  .hero-image{margin-top:40px;}
+  .hero-image img{height:350px;width:100%;}
+  .about-inner{grid-template-columns:1fr;}
+  .about-img img{height:300px;}
+  .hours-grid{grid-template-columns:1fr;}
+  .logo{font-size:16px;}
+  nav a{font-size:12px;padding:5px 9px;}
+}
+
+/* ── TRANSLATION LOADER ── */
+[data-translate]{transition:opacity .15s;}
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/2510978788375" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 2.667C8.638 2.667 2.667 8.638 2.667 16c0 2.35.63 4.55 1.73 6.456L2.667 29.333l7.1-1.7A13.27 13.27 0 0016.004 29.333C23.37 29.333 29.333 23.362 29.333 16c0-7.362-5.963-13.333-13.33-13.333zm0 24A10.637 10.637 0 0110.25 24.4l-.38-.23-3.95.944.998-3.824-.254-.398A10.593 10.593 0 015.337 16C5.337 10.115 10.12 5.337 16 5.337S26.667 10.115 26.667 16 21.88 26.667 16.004 26.667zm5.83-7.96c-.32-.16-1.89-.93-2.18-1.034-.29-.104-.5-.16-.714.16-.21.32-.82 1.034-1.007 1.247-.186.213-.37.24-.69.08-.32-.16-1.35-.497-2.57-1.584-.95-.847-1.59-1.893-1.777-2.213-.186-.32-.02-.493.14-.653.144-.143.32-.374.48-.56.16-.187.213-.32.32-.534.107-.213.053-.4-.027-.56-.08-.16-.714-1.72-.978-2.354-.257-.617-.52-.533-.714-.543l-.608-.01a1.17 1.17 0 00-.847.4c-.29.32-1.11 1.083-1.11 2.64 0 1.556 1.137 3.06 1.297 3.273.16.213 2.237 3.413 5.42 4.787.758.327 1.35.52 1.81.667.76.24 1.453.207 2 .126.61-.09 1.89-.773 2.157-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z"/>
+  </svg>
+</a>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    Dr. Feyza Seid
+    <span>Specialized Skin Care Clinic</span>
+  </div>
+  <nav>
+    <a href="#about" data-translate="nav_about">About</a>
+    <a href="#services" data-translate="nav_services">Services</a>
+    <a href="#hours" data-translate="nav_hours">Hours</a>
+    <a href="#contact" data-translate="nav_contact">Contact</a>
+    <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
+      <option value="en">🌐 EN</option>
+      <option value="am">🇪🇹 አማ</option>
+      <option value="ar">🌍 AR</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="de">🇩🇪 DE</option>
+    </select>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 data-translate="hero_h1">Healthy Skin.<br><span>Confident You.</span></h1>
+    <p data-translate="hero_p">Experience professional dermatology and advanced skincare solutions designed to help you achieve radiant, healthy, and beautiful skin. Personalized consultations, expert treatments, and modern technology — all in one place.</p>
+    <a href="https://specialized-skin-care-clinic.onrender.com" class="btn" data-translate="hero_btn">Book Appointment</a>
+    <a href="#about" class="btn-outline" data-translate="hero_btn2">Learn More</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Skincare">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1629909615957-be38d48fbbe4?auto=format&fit=crop&w=900&q=80" alt="Clinic Interior">
+    </div>
+    <div class="about-text">
+      <div class="section-title" style="text-align:left;margin-bottom:24px;">
+        <div class="eyebrow" data-translate="about_eyebrow">About Us</div>
+        <h2 data-translate="about_h2">Your Skin Deserves Expert Care</h2>
+      </div>
+      <p data-translate="about_p1">Welcome to Dr. Feyza Seid Specialized Skin Care Clinic, where science meets beauty in Bahir Dar's premier dermatology destination. Located in the Nock Building, we bring you cutting-edge skincare solutions delivered with compassion and expertise.</p>
+      <p data-translate="about_p2">Our board-certified dermatologist and skilled team use only the finest, clinically-proven treatments to address your unique skin concerns. From acne to advanced laser therapies, every consultation is tailored specifically to you.</p>
+      <p data-translate="about_p3">We believe beautiful skin transforms confidence. Join thousands of happy patients who trust us with their skin health. Your journey to radiant, healthy skin begins here — where every patient is treated like family.</p>
+      <a href="https://specialized-skin-care-clinic.onrender.com" class="btn" style="margin-top:10px;" data-translate="about_btn">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="section-title">
+    <div class="eyebrow" data-translate="services_eyebrow">What We Offer</div>
+    <h2 data-translate="services_h2">Our Specialized Services</h2>
+    <p data-translate="services_p">Comprehensive care for your skin, hair, and beauty needs.</p>
+  </div>
+  <div class="services">
+    <div class="card"><div class="card-icon">🧴</div><h3 data-translate="s1_h">Acne Treatment</h3><p data-translate="s1_p">Effective solutions for acne, acne scars, and skin inflammation using modern dermatological approaches.</p></div>
+    <div class="card"><div class="card-icon">✨</div><h3 data-translate="s2_h">Skin Rejuvenation</h3><p data-translate="s2_p">Restore youthful and radiant skin with advanced treatments and personalized skincare plans.</p></div>
+    <div class="card"><div class="card-icon">🌟</div><h3 data-translate="s3_h">Pigmentation Care</h3><p data-translate="s3_p">Specialized therapies for dark spots, melasma, and uneven skin tone.</p></div>
+    <div class="card"><div class="card-icon">💆</div><h3 data-translate="s4_h">Hair & Scalp Care</h3><p data-translate="s4_p">Diagnosis and treatment for hair loss, thinning hair, and scalp conditions.</p></div>
+    <div class="card"><div class="card-icon">🔬</div><h3 data-translate="s5_h">Laser Treatments</h3><p data-translate="s5_p">Advanced laser technology for smoother, healthier, and rejuvenated skin.</p></div>
+    <div class="card"><div class="card-icon">💻</div><h3 data-translate="s6_h">Online Consultation</h3><p data-translate="s6_p">Connect with skincare professionals from anywhere and receive expert guidance.</p></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><h2>5000+</h2><p data-translate="stat1">Happy Patients</p></div>
+  <div class="stat"><h2>98%</h2><p data-translate="stat2">Patient Satisfaction</p></div>
+  <div class="stat"><h2>24/7</h2><p data-translate="stat3">Online Support</p></div>
+  <div class="stat"><h2>100%</h2><p data-translate="stat4">Personalized Care</p></div>
+</section>
+
+<!-- OPENING HOURS + CONTACT -->
+<section class="hours-section" id="hours">
+  <div class="section-title">
+    <div class="eyebrow" data-translate="hours_eyebrow">Visit Us</div>
+    <h2 data-translate="hours_h2">Opening Hours & Contact</h2>
+    <p data-translate="hours_sub">We're here when you need us most</p>
+  </div>
+  <div class="hours-grid">
+    <div>
+      <div class="hours-table">
+        <div class="hours-row"><span class="day" data-translate="mon">Monday</span><span class="time">8:00 – 13:00</span></div>
+        <div class="hours-row"><span class="day" data-translate="tue_sat">Tuesday – Saturday</span><span class="time">8:00 – 18:00</span></div>
+        <div class="hours-row"><span class="day" data-translate="sun">Sunday</span><span class="time">10:00 – 14:00</span></div>
+      </div>
+      <p style="margin-top:24px;color:var(--muted);font-size:14px;" data-translate="hours_note">
+        Visit us or get in touch — we're here to serve you with expert, personalized skin care.
+      </p>
+    </div>
+    <div class="contact-box" id="contact">
+      <h3 data-translate="contact_h">Contact Details</h3>
+      <div class="contact-item">
+        <span class="icon">📍</span>
+        <div>
+          <strong data-translate="addr_label">Address</strong>
+          Bahir Dar, Nock Building<br>Floor G+2, Room xx
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <div>
+          <strong data-translate="phone_label">Phone</strong>
+          +251 (0) 9xxxxx
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">💬</span>
+        <div>
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/2510975882230" style="color:var(--sky);text-decoration:none;">+251 (0) 9xxxxx</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🌐</span>
+        <div>
+          <strong data-translate="web_label">Online Booking</strong>
+          <a href="https://specialized-skin-care-clinic.onrender.com" style="color:var(--sky);text-decoration:none;">specialized-skin-care-clinic.onrender.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW US -->
+<section class="social-section">
+  <div class="section-title">
+    <div class="eyebrow" data-translate="social_eyebrow">Stay Connected</div>
+    <h2 data-translate="social_h2">Follow Us</h2>
+    <p data-translate="social_p">Stay connected with Dr. Feyza Specialized Skin Care Clinic. Follow us on social media for updates, special offers, skincare tips, and more.</p>
+  </div>
+  <div class="social-cards">
+    <a href="https://www.instagram.com/" class="social-btn insta" target="_blank">
+      <span class="s-icon">📷</span> <span data-translate="insta_btn">Follow on Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/" class="social-btn tiktok" target="_blank">
+      <span class="s-icon">🎵</span> <span data-translate="tiktok_btn">Follow on TikTok</span>
+    </a>
+    <a href="https://t.me/" class="social-btn telegram" target="_blank">
+      <span class="s-icon">✈️</span> <span data-translate="telegram_btn">Join on Telegram</span>
+    </a>
+    <a href="https://wa.me/2510975882230" class="social-btn" style="background:#25D366;color:white;" target="_blank">
+      <span class="s-icon">💬</span> <span data-translate="wa_btn">Chat on WhatsApp</span>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 data-translate="cta_h2">Start Your Skin Transformation Today</h2>
+  <p data-translate="cta_p">Discover professional skincare solutions tailored to your unique needs.</p>
+  <a href="https://specialized-skin-care-clinic.onrender.com" class="btn-white" data-translate="cta_btn">Schedule Consultation</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <h3>Dr. Feyza Seid Specialized Skin Care Clinic</h3>
+    <p style="opacity:.7;margin-top:4px;font-size:14px;">Bahir Dar, Nock Building, Floor G+2 · +251 (0) 9xxxxx</p>
+    <div class="footer-links">
+      <a href="#home" data-translate="nav_home">Home</a>
+      <a href="#about" data-translate="nav_about">About</a>
+      <a href="#services" data-translate="nav_services">Services</a>
+      <a href="#hours" data-translate="nav_hours">Hours</a>
+      <a href="#contact" data-translate="nav_contact">Contact</a>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-creator">
+      <strong>Created by Asmamaw Yehun</strong> — Ph.D &amp; Certified Software Engineer<br>
+      ✉️ chanieasmamaw@yahoo.com &nbsp;·&nbsp; 🔗 linkedin.com/in/asmamaw-chanie-yehun &nbsp;·&nbsp; 📞 0975882230
+    </div>
+    <p class="footer-copy" style="margin-top:16px;">© 2026 Dr. Feyza Seid Specialized Skin Care Clinic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ─────────────────────────────────────────────
+   TRANSLATION SYSTEM
+───────────────────────────────────────────── */
+const translations = {
+  en: {
+    nav_home:"Home", nav_about:"About", nav_services:"Services",
+    nav_hours:"Hours", nav_contact:"Contact",
+    hero_h1:'Healthy Skin.<br><span>Confident You.</span>',
+    hero_p:"Experience professional dermatology and advanced skincare solutions designed to help you achieve radiant, healthy, and beautiful skin. Personalized consultations, expert treatments, and modern technology — all in one place.",
+    hero_btn:"Book Appointment", hero_btn2:"Learn More",
+    about_eyebrow:"About Us", about_h2:"Your Skin Deserves Expert Care",
+    about_p1:"Welcome to Dr. Feyza Seid Specialized Skin Care Clinic, where science meets beauty in Bahir Dar's premier dermatology destination. Located in the Nock Building, we bring you cutting-edge skincare solutions delivered with compassion and expertise.",
+    about_p2:"Our board-certified dermatologist and skilled team use only the finest, clinically-proven treatments to address your unique skin concerns. From acne to advanced laser therapies, every consultation is tailored specifically to you.",
+    about_p3:"We believe beautiful skin transforms confidence. Join thousands of happy patients who trust us with their skin health. Your journey to radiant, healthy skin begins here — where every patient is treated like family.",
+    about_btn:"Book a Consultation",
+    services_eyebrow:"What We Offer", services_h2:"Our Specialized Services",
+    services_p:"Comprehensive care for your skin, hair, and beauty needs.",
+    s1_h:"Acne Treatment", s1_p:"Effective solutions for acne, acne scars, and skin inflammation using modern dermatological approaches.",
+    s2_h:"Skin Rejuvenation", s2_p:"Restore youthful and radiant skin with advanced treatments and personalized skincare plans.",
+    s3_h:"Pigmentation Care", s3_p:"Specialized therapies for dark spots, melasma, and uneven skin tone.",
+    s4_h:"Hair & Scalp Care", s4_p:"Diagnosis and treatment for hair loss, thinning hair, and scalp conditions.",
+    s5_h:"Laser Treatments", s5_p:"Advanced laser technology for smoother, healthier, and rejuvenated skin.",
+    s6_h:"Online Consultation", s6_p:"Connect with skincare professionals from anywhere and receive expert guidance.",
+    stat1:"Happy Patients", stat2:"Patient Satisfaction", stat3:"Online Support", stat4:"Personalized Care",
+    hours_eyebrow:"Visit Us", hours_h2:"Opening Hours & Contact", hours_sub:"We're here when you need us most",
+    mon:"Monday", tue_sat:"Tuesday – Saturday", sun:"Sunday",
+    hours_note:"Visit us or get in touch — we're here to serve you with expert, personalized skin care.",
+    contact_h:"Contact Details", addr_label:"Address", phone_label:"Phone", web_label:"Online Booking",
+    social_eyebrow:"Stay Connected", social_h2:"Follow Us",
+    social_p:"Stay connected with Dr. Feyza Specialized Skin Care Clinic. Follow us on social media for updates, special offers, skincare tips, and more.",
+    insta_btn:"Follow on Instagram", tiktok_btn:"Follow on TikTok",
+    telegram_btn:"Join on Telegram", wa_btn:"Chat on WhatsApp",
+    cta_h2:"Start Your Skin Transformation Today",
+    cta_p:"Discover professional skincare solutions tailored to your unique needs.",
+    cta_btn:"Schedule Consultation"
+  },
+  am: {
+    nav_home:"መነሻ", nav_about:"ስለ ክሊኒኩ", nav_services:"አገልግሎቶች",
+    nav_hours:"የስራ ሰዓት", nav_contact:"ያግኙን",
+    hero_h1:'ጤናማ ቆዳ.<br><span>እርስዎ በእርስዎ ይሁኑ.</span>',
+    hero_p:"የቆዳ ጤና ባለሙያ ምርመራ እና ዘርፈ ብዙ የቆዳ ጥንቃቄ አገልግሎቶች — ያላዎትን ቆዳ ያብሩ፣ ጤናማ እና ደምቀው እንዲሆን።",
+    hero_btn:"ቀጠሮ ይያዙ", hero_btn2:"ተጨማሪ ወደ ማወቅ",
+    about_eyebrow:"ስለ እኛ", about_h2:"ቆዳዎ የባለሙያ እንክብካቤ ያስፈልጋል",
+    about_p1:"ወደ ዶ/ር ፈይዛ ሰይድ ልዩ የቆዳ ክሊኒክ እንኳን ደህና መጡ — ሳይንስ ከውበት ጋር የሚገናኝበት፣ ለቆዳ ጤና ምርጡ መዳረሻ። ሐሙስ ቤት፣ ናቅ ህንፃ ውስጥ ።",
+    about_p2:"ቡድናችን ምርጡን፣ በሕክምና የተረጋገጡ ህክምናዎችን ብቻ ይጠቀማል — ምርምርዎን ሙሉ ለሙሉ ያዘጋጃል።",
+    about_p3:"ውብ ቆዳ ራስን ማወቅን ይቀይራል። ሺዎች ደስተኛ ታካሚዎቻችን ቤተሰብ ናቸው።",
+    about_btn:"ምክክር ይያዙ",
+    services_eyebrow:"የምናቀርበው", services_h2:"ዋና አገልግሎቶቻችን",
+    services_p:"ለቆዳ፣ ለፀጉር እና ለውበት ሁሉን አቀፍ እንክብካቤ።",
+    s1_h:"ብጉር ህክምና", s1_p:"ዘመናዊ ዘዴዎችን ተጠቅሞ ብጉርን፣ ቁስልን እና የቆዳ ብግነትን ለማከም።",
+    s2_h:"የቆዳ ማደስ", s2_p:"ወጣት እና ሞቅ ያለ ቆዳ ለማግኘት ዘርፈ ብዙ ህክምናዎች።",
+    s3_h:"የቀለም ምርምር", s3_p:"ለጨለማ ነጠብጣቦች፣ ለስሜቶሳ እና ለቆዳ ቀለም አለመስተካከሉ ልዩ ህክምናዎች።",
+    s4_h:"የፀጉር እና ቅርፊት እንክብካቤ", s4_p:"ለፀጉር ረቂቅ፣ ቀጫጭን ፀጉር እና ቅርፊት ሁኔታዎች ምርምር እና ህክምና።",
+    s5_h:"ሌዘር ህክምናዎች", s5_p:"ለሱፍ፣ ጤናማ እና ታድሶ ቆዳ ዘርፈ ብዙ የሌዘር ቴክኖሎጂ።",
+    s6_h:"የኦንሊን ምክክር", s6_p:"ከየትኛውም ቦታ ከቆዳ ባለሙያዎች ጋር ይገናኙ እና ምክር ያግኙ።",
+    stat1:"ደስተኛ ሕሙማን", stat2:"የሕሙማን እርካታ", stat3:"24/7 ድጋፍ", stat4:"ለግለሰብ ተስተካካይ",
+    hours_eyebrow:"ጉብኙን", hours_h2:"የስራ ሰዓት እና ያግኙን", hours_sub:"ሲፈልጉን እዚህ ነን",
+    mon:"ሰኞ", tue_sat:"ማክሰኞ – ቅዳሜ", sun:"እሑድ",
+    hours_note:"ጎብኙን ወይም ያግኙን — ሁልጊዜ ለማገልገል ዝግጁ ነን።",
+    contact_h:"ያግኙን", addr_label:"አድራሻ", phone_label:"ስልክ", web_label:"ኦንሊን ቀጠሮ",
+    social_eyebrow:"ቆናጠቁ", social_h2:"ተከተሉን",
+    social_p:"ዶ/ር ፈይዛ ሰይድ ልዩ የቆዳ ክሊኒክ ጋር ቆናጠቁ — ዝማኔ፣ ቅናሽ፣ የቆዳ ምክሮችን ለማግኘት።",
+    insta_btn:"ኢንስታግራም ላይ ይከተሉ", tiktok_btn:"ቲክቶክ ላይ ይከተሉ",
+    telegram_btn:"ቴሌግራም ላይ ይቀላቀሉ", wa_btn:"ዋትሳፕ ያናግሩን",
+    cta_h2:"ዛሬ የቆዳ ለውጥ ጉዞ ይጀምሩ",
+    cta_p:"ለእርስዎ ልዩ የቆዳ ጤና ፍላጎቶች ተስተካካይ ዘዴዎችን ያግኙ።",
+    cta_btn:"ምክክር ያዝ"
+  },
+  ar: {
+    nav_home:"الرئيسية", nav_about:"عن العيادة", nav_services:"الخدمات",
+    nav_hours:"ساعات العمل", nav_contact:"تواصل معنا",
+    hero_h1:'بشرة صحية.<br><span>ثقة بالنفس.</span>',
+    hero_p:"استمتع بخدمات طب الجلد الاحترافية وحلول العناية بالبشرة المتقدمة المصممة لمساعدتك على تحقيق بشرة مشرقة وصحية وجميلة.",
+    hero_btn:"احجز موعداً", hero_btn2:"اعرف أكثر",
+    about_eyebrow:"من نحن", about_h2:"بشرتك تستحق رعاية خبراء",
+    about_p1:"مرحباً بكم في عيادة د. فيزة سيد المتخصصة للعناية بالبشرة، حيث يلتقي العلم بالجمال في أفضل وجهة لطب الجلد في بحر دار.",
+    about_p2:"يستخدم فريقنا فقط أفضل العلاجات المعتمدة سريرياً لمعالجة مخاوف بشرتك الفريدة من نوعها.",
+    about_p3:"نؤمن أن البشرة الجميلة تحول الثقة بالنفس. انضم إلى آلاف المرضى السعداء الذين يثقون بنا.",
+    about_btn:"احجز استشارة",
+    services_eyebrow:"ما نقدمه", services_h2:"خدماتنا المتخصصة",
+    services_p:"رعاية شاملة لبشرتك وشعرك واحتياجات الجمال.",
+    s1_h:"علاج حب الشباب", s1_p:"حلول فعّالة لحب الشباب وندوبه والتهاب الجلد.",
+    s2_h:"تجديد البشرة", s2_p:"استعادة البشرة الشبابية المشرقة بعلاجات متقدمة.",
+    s3_h:"علاج التصبغات", s3_p:"علاجات متخصصة للبقع الداكنة والكلف وعدم تجانس لون البشرة.",
+    s4_h:"العناية بالشعر وفروة الرأس", s4_p:"تشخيص وعلاج تساقط الشعر وترققه.",
+    s5_h:"علاجات الليزر", s5_p:"تكنولوجيا الليزر المتقدمة لبشرة أكثر نعومة وصحة.",
+    s6_h:"استشارة عبر الإنترنت", s6_p:"تواصل مع متخصصي العناية بالبشرة من أي مكان.",
+    stat1:"مريض سعيد", stat2:"رضا المرضى", stat3:"دعم متواصل", stat4:"رعاية شخصية",
+    hours_eyebrow:"زورونا", hours_h2:"ساعات العمل وتواصل معنا", hours_sub:"نحن هنا عندما تحتاجنا",
+    mon:"الاثنين", tue_sat:"الثلاثاء – السبت", sun:"الأحد",
+    hours_note:"زورونا أو تواصلوا معنا — نحن هنا لخدمتكم.",
+    contact_h:"بيانات التواصل", addr_label:"العنوان", phone_label:"الهاتف", web_label:"الحجز الإلكتروني",
+    social_eyebrow:"ابقَ على تواصل", social_h2:"تابعنا",
+    social_p:"تابع عيادة د. فيزة سيد على وسائل التواصل الاجتماعي للحصول على التحديثات والعروض ونصائح العناية بالبشرة.",
+    insta_btn:"تابع على إنستغرام", tiktok_btn:"تابع على تيك توك",
+    telegram_btn:"انضم على تيليغرام", wa_btn:"تواصل على واتساب",
+    cta_h2:"ابدأ رحلة تحويل بشرتك اليوم",
+    cta_p:"اكتشف حلول العناية بالبشرة الاحترافية المصممة خصيصاً لك.",
+    cta_btn:"احجز استشارة"
+  },
+  fr: {
+    nav_home:"Accueil", nav_about:"À propos", nav_services:"Services",
+    nav_hours:"Horaires", nav_contact:"Contact",
+    hero_h1:'Une peau saine.<br><span>Confiance en soi.</span>',
+    hero_p:"Profitez de soins dermatologiques professionnels et de solutions avancées pour la peau conçus pour vous aider à obtenir une peau rayonnante, saine et belle.",
+    hero_btn:"Prendre rendez-vous", hero_btn2:"En savoir plus",
+    about_eyebrow:"Qui sommes-nous", about_h2:"Votre peau mérite des soins experts",
+    about_p1:"Bienvenue à la Clinique Spécialisée en Soins de la Peau du Dr Feyza Seid, où la science rencontre la beauté à Bahir Dar.",
+    about_p2:"Notre équipe utilise uniquement les meilleurs traitements cliniquement éprouvés pour répondre à vos préoccupations cutanées uniques.",
+    about_p3:"Nous croyons qu'une belle peau transforme la confiance. Rejoignez des milliers de patients heureux qui nous font confiance.",
+    about_btn:"Réserver une consultation",
+    services_eyebrow:"Ce que nous offrons", services_h2:"Nos services spécialisés",
+    services_p:"Soins complets pour votre peau, vos cheveux et vos besoins de beauté.",
+    s1_h:"Traitement de l'acné", s1_p:"Solutions efficaces pour l'acné et l'inflammation de la peau.",
+    s2_h:"Rajeunissement de la peau", s2_p:"Retrouvez une peau jeune et lumineuse avec des traitements avancés.",
+    s3_h:"Soins de pigmentation", s3_p:"Thérapies spécialisées pour les taches sombres et le mélasma.",
+    s4_h:"Soins capillaires et du cuir chevelu", s4_p:"Diagnostic et traitement de la perte de cheveux.",
+    s5_h:"Traitements laser", s5_p:"Technologie laser avancée pour une peau plus lisse et saine.",
+    s6_h:"Consultation en ligne", s6_p:"Connectez-vous avec des professionnels de soins de la peau de n'importe où.",
+    stat1:"Patients satisfaits", stat2:"Taux de satisfaction", stat3:"Support 24/7", stat4:"Soins personnalisés",
+    hours_eyebrow:"Venez nous voir", hours_h2:"Horaires & Contact", hours_sub:"Nous sommes là quand vous en avez besoin",
+    mon:"Lundi", tue_sat:"Mardi – Samedi", sun:"Dimanche",
+    hours_note:"Venez nous rendre visite ou contactez-nous — nous sommes là pour vous.",
+    contact_h:"Coordonnées", addr_label:"Adresse", phone_label:"Téléphone", web_label:"Réservation en ligne",
+    social_eyebrow:"Restez connecté", social_h2:"Suivez-nous",
+    social_p:"Suivez la Clinique Dr Feyza sur les réseaux sociaux pour les actualités, offres spéciales et conseils beauté.",
+    insta_btn:"Suivre sur Instagram", tiktok_btn:"Suivre sur TikTok",
+    telegram_btn:"Rejoindre sur Telegram", wa_btn:"Chatter sur WhatsApp",
+    cta_h2:"Commencez votre transformation cutanée aujourd'hui",
+    cta_p:"Découvrez des solutions de soins de la peau adaptées à vos besoins uniques.",
+    cta_btn:"Planifier une consultation"
+  },
+  de: {
+    nav_home:"Startseite", nav_about:"Über uns", nav_services:"Leistungen",
+    nav_hours:"Öffnungszeiten", nav_contact:"Kontakt",
+    hero_h1:'Gesunde Haut.<br><span>Selbstbewusstes Sie.</span>',
+    hero_p:"Erleben Sie professionelle Dermatologie und fortschrittliche Hautpflege, um strahlende, gesunde und schöne Haut zu erreichen.",
+    hero_btn:"Termin buchen", hero_btn2:"Mehr erfahren",
+    about_eyebrow:"Über uns", about_h2:"Ihre Haut verdient Expertenpflege",
+    about_p1:"Willkommen in der Spezialisierten Hautklinik Dr. Feyza Seid, wo Wissenschaft auf Schönheit trifft in Bahir Dar.",
+    about_p2:"Unser Team verwendet nur die besten klinisch bewährten Behandlungen für Ihre einzigartigen Hautprobleme.",
+    about_p3:"Wir glauben, dass schöne Haut das Selbstvertrauen transformiert. Schließen Sie sich tausenden zufriedenen Patienten an.",
+    about_btn:"Beratung buchen",
+    services_eyebrow:"Unser Angebot", services_h2:"Unsere spezialisierten Leistungen",
+    services_p:"Umfassende Pflege für Ihre Haut, Haare und Schönheitsbedürfnisse.",
+    s1_h:"Akne-Behandlung", s1_p:"Effektive Lösungen für Akne und Hautentzündungen.",
+    s2_h:"Hautverjüngung", s2_p:"Strahlende Haut mit fortschrittlichen Behandlungen wiederherstellen.",
+    s3_h:"Pigmentierungspflege", s3_p:"Spezialisierte Therapien für dunkle Flecken und Melasma.",
+    s4_h:"Haar- & Kopfhautpflege", s4_p:"Diagnose und Behandlung von Haarausfall.",
+    s5_h:"Laserbehandlungen", s5_p:"Fortschrittliche Lasertechnologie für glattere, gesündere Haut.",
+    s6_h:"Online-Beratung", s6_p:"Verbinden Sie sich von überall mit Hautpflegespezialisten.",
+    stat1:"Zufriedene Patienten", stat2:"Patientenzufriedenheit", stat3:"24/7 Support", stat4:"Personalisierte Pflege",
+    hours_eyebrow:"Besuchen Sie uns", hours_h2:"Öffnungszeiten & Kontakt", hours_sub:"Wir sind da, wenn Sie uns brauchen",
+    mon:"Montag", tue_sat:"Dienstag – Samstag", sun:"Sonntag",
+    hours_note:"Besuchen Sie uns oder nehmen Sie Kontakt auf — wir sind immer für Sie da.",
+    contact_h:"Kontaktdaten", addr_label:"Adresse", phone_label:"Telefon", web_label:"Online-Buchung",
+    social_eyebrow:"Verbunden bleiben", social_h2:"Folgen Sie uns",
+    social_p:"Folgen Sie der Dr. Feyza Hautklinik in den sozialen Medien für Updates, Angebote und Hautpflegetipps.",
+    insta_btn:"Auf Instagram folgen", tiktok_btn:"Auf TikTok folgen",
+    telegram_btn:"Auf Telegram beitreten", wa_btn:"WhatsApp schreiben",
+    cta_h2:"Beginnen Sie noch heute Ihre Haut-Transformation",
+    cta_p:"Entdecken Sie professionelle Hautpflegelösungen, die auf Ihre einzigartigen Bedürfnisse zugeschnitten sind.",
+    cta_btn:"Beratung planen"
+  }
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  if (!t) return;
+
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
+
+  // RTL for Arabic
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// Animate stats on scroll
+const statEls = document.querySelectorAll('.stat h2');
+let statsAnimated = false;
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !statsAnimated) {
+      statsAnimated = true;
+      statEls.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all .6s ease';
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200);
+      });
+    }
+  });
+}, {threshold: 0.3});
+
+const statsSection = document.querySelector('.stats');
+if (statsSection) observer.observe(statsSection);
+</script>
+
+</body>
+</html>
