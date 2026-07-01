@@ -24,9 +24,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--section-bg);color:var(--t
 body.dark{--text:#e2e8f0;--muted:#94a3b8;--section-bg:#0f172a;--card-bg:#1e293b;--soft:#1e293b;--navy:#f1f5f9;--white:#1e293b;}
 
 /* HEADER */
-header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:white;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;box-shadow:0 4px 24px rgba(2,132,199,.25);}
+header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:white;padding:0;display:flex;flex-direction:column;position:sticky;top:0;z-index:200;box-shadow:0 4px 24px rgba(2,132,199,.25);}
+.header-banner{width:100%;display:block;}
+.header-banner img{width:100%;height:auto;display:block;}
 .logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;letter-spacing:.3px;line-height:1.2;}
 .logo span{display:block;font-size:11px;font-weight:400;opacity:.85;font-family:'DM Sans',sans-serif;}
+.header-nav-row{display:flex;justify-content:flex-end;align-items:center;padding:10px 6%;flex-wrap:wrap;}
 nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 nav a{color:white;text-decoration:none;padding:7px 14px;border-radius:30px;font-size:14px;font-weight:500;transition:.2s;}
 nav a:hover{background:rgba(255,255,255,.18);}
@@ -161,6 +164,7 @@ body.dark footer{background:#020817;}
   .gallery-grid{grid-template-columns:1fr 1fr;}
   .gallery-grid img:first-child{grid-column:span 2;}
   .logo{font-size:16px;}
+  .header-nav-row{padding:8px 4%;justify-content:center;}
   nav a{font-size:12px;padding:5px 9px;}
 }
 </style>
@@ -176,24 +180,25 @@ body.dark footer{background:#020817;}
 
 <!-- HEADER -->
 <header>
-  <div class="logo">
-    Holistic Dermatology & Aesthetic
-    <span>Speciality Clinic · Bahir Dar, Ethiopia</span>
+  <div class="header-banner">
+    <img src="images/header-banner.jpg" alt="Holistic Dermatology & Aesthetic Clinic">
   </div>
-  <nav>
-    <a href="#about" data-translate="nav_about">About</a>
-    <a href="#services" data-translate="nav_services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#hours" data-translate="nav_hours">Hours</a>
-    <a href="#contact" data-translate="nav_contact">Contact</a>
-    <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
-      <option value="en">🌐 EN</option>
-      <option value="am">🇪🇹 አማ</option>
-      <option value="ar">🌍 AR</option>
-      <option value="fr">🇫🇷 FR</option>
-      <option value="de">🇩🇪 DE</option>
-    </select>
-  </nav>
+  <div class="header-nav-row">
+    <nav>
+      <a href="#about" data-translate="nav_about">About</a>
+      <a href="#services" data-translate="nav_services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#hours" data-translate="nav_hours">Hours</a>
+      <a href="#contact" data-translate="nav_contact">Contact</a>
+      <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)">
+        <option value="en">🌐 EN</option>
+        <option value="am">🇪🇹 አማ</option>
+        <option value="ar">🌍 AR</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+      </select>
+    </nav>
+  </div>
 </header>
 
 <!-- HERO SLIDESHOW -->
